@@ -44,25 +44,17 @@ Module Program
     
     Sub PasswordInput()
         Dim CorrectLength, NoSpaces, UpperCasePresent, DigitPresent As Boolean
-        FileOpen(1, "Password.txt", OpenMode.Output)
-        Do
-            CorrectLength = False
-            NoSpaces = False
-            UpperCasePresent = False
-            DigitPresent = False
-            Console.Write("Enter Password: ")
-            Password = Console.ReadLine()
-            If Password.Length >= 10 And Password.Length <= 20 Then
-                CorrectLength = True
-            End If
-            For SpaceCheckCounter = 0 To Password.Length - 1
-                If Password.Substring(SpaceCheckCounter, 1) <> " " Then
-                    NoSpaces = True
-                End If
-            Next
-        Loop Until CorrectLength And NoSpaces And UpperCasePresent And DigitPresent
-        PrintLine(1, Password)
-        FileClose(1)
+         
     End Sub
     
+    function CorrectLength() As Boolean
+        Dim PasswordLength As Integer
+        Console.WriteLine("Enter a password that is at least 8 characters long.")
+        PasswordLength = Console.ReadLine()
+        If PasswordLength >= 8 Then
+            Return True
+        Else
+            Return False
+        End If
+    End function
 End Module
