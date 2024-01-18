@@ -5,13 +5,13 @@ Module Program
     Dim Password As String
 
     Sub Choices()
-        Console.WriteLine("1. Enter a new .")
+        Console.WriteLine("1. Enter a new password.")
         Console.WriteLine("2. Check your .")
         Console.WriteLine("3. Change your .")
         Console.WriteLine("4. Quit.")
     End Sub
     Sub PasswordInput()
-        FileOpen(1, "Password.txt", OpenMode.Output)
+        FileOpen(1, "PasswordStore.txt", OpenMode.Output)
         Console.Write("Enter Password:")
         Password = Console.ReadLine()
     End Sub
