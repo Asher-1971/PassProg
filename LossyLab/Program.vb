@@ -43,39 +43,42 @@ Module Program
     End Sub 
     
     Sub PasswordInput()
-        Dim CorrectLength, NoSpaces, UpperCasePresent, DigitPresent As Boolean
         Dim Password as string
         Console.WriteLine("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
-        CorrectLength = CorrectLength(Password)
-        NoSpaces = NoSpaces(Password)
-        UpperCasePresent = UpperCasePresent(Password)
-        DigitPresent = DigitPresent(Password)
+        Dim CorrectLengthResult As Boolean
+        CorrectLengthResult = CorrectLength(Password)
+        Dim NoSpacesResult As Boolean
+        NoSpacesResult = NoSpaces(Password)
+        Dim UpperCasePresentResult As Boolean
+        UpperCasePresentResult = UpperCasePresent(Password)
+        dim DigitPresentResult As Boolean
+        DigitPresentResult = DigitPresent(Password)
         
-        While CorrectLength = False or NoSpaces = False or UpperCasePresent = False or DigitPresent = False
-            If CorrectLength = False Then
+        While CorrectLengthResult = False or NoSpacesResult = False or UpperCasePresentResult = False or DigitPresentResult = False
+            If CorrectLengthResult = False Then
                 Console.WriteLine("Password must be between 10 and 20 characters long.")
             End If
-            If NoSpaces = False Then
+            If NoSpacesResult = False Then
                 Console.WriteLine("Password must not contain any spaces.")
             End If
-            If UpperCasePresent = False Then
+            If UpperCasePresentResult = False Then
                 Console.WriteLine("Password must contain at least one uppercase letter.")
             End If
-            If DigitPresent = False Then
+            If DigitPresentResult = False Then
                 Console.WriteLine("Password must contain at least one digit.")
             End If
             Console.WriteLine()
             Console.WriteLine("Enter a password:")
             Password = Console.ReadLine()
             Console.WriteLine()
-            CorrectLength = CorrectLength(Password)
-            NoSpaces = NoSpaces(Password)
-            UpperCasePresent = UpperCasePresent(Password)
-            DigitPresent = DigitPresent(Password)
+            CorrectLengthResult = CorrectLength(Password)
+            NoSpacesResult = NoSpaces(Password)
+            UpperCasePresentResult = UpperCasePresent(Password)
+            DigitPresentResult = DigitPresent(Password)
         End While
-    if CorrectLength = True and NoSpaces = True and UpperCasePresent = True and DigitPresent = True Then
+    if CorrectLengthResult = True and NoSpacesResult = True and UpperCasePresentResult = True and DigitPresentResult = True Then
         Console.WriteLine("Password accepted.")
         Console.WriteLine()
         Console.WriteLine("Press any key to continue...")
@@ -85,7 +88,15 @@ Module Program
         Main()
     End If
     End Sub
+     
+    sub PasswordCheck()
+       console.WriteLine("lele")
     End Sub
+
+    sub PasswordChange()
+       console.WriteLine("lele")
+    End Sub
+
     
     function CorrectLength(byref Password) As Boolean
        
@@ -132,7 +143,7 @@ Module Program
         Digit = False
         For count As Integer = 0 To Password.Length - 1
            for count2 As Integer = 0 To Numbers.Length - 1
-                If Password.substring(count,1) = Number(count2)  Then
+                If Password.substring(count,1) = Numbers(count2)  Then
                     Digit = True
                 End If
             Next
