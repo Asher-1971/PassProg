@@ -48,6 +48,32 @@ Module Program
         Console.WriteLine("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
+        CorrectLength = CorrectLength(Password)
+        NoSpaces = NoSpaces(Password)
+        UpperCasePresent = UpperCasePresent(Password)
+        DigitPresent = DigitPresent(Password)
+        While CorrectLength = False or NoSpaces = False or UpperCasePresent = False or DigitPresent = False
+            If CorrectLength = False Then
+                Console.WriteLine("Password must be between 10 and 20 characters long.")
+            End If
+            If NoSpaces = False Then
+                Console.WriteLine("Password must not contain any spaces.")
+            End If
+            If UpperCasePresent = False Then
+                Console.WriteLine("Password must contain at least one uppercase letter.")
+            End If
+            If DigitPresent = False Then
+                Console.WriteLine("Password must contain at least one digit.")
+            End If
+            Console.WriteLine()
+            Console.WriteLine("Enter a password:")
+            Password = Console.ReadLine()
+            Console.WriteLine()
+            CorrectLength = CorrectLength(Password)
+            NoSpaces = NoSpaces(Password)
+            UpperCasePresent = UpperCasePresent(Password)
+            DigitPresent = DigitPresent(Password)
+        End While
 
     End Sub
     
@@ -89,4 +115,24 @@ Module Program
             Return False
         End If
     End Function
+
+    Function DigitPresent(byref Password) As Boolean
+        dim Numbers() As String = {"0","1","2","3","4","5","6","7","8","9"}
+        Dim Digit As Boolean
+        Digit = False
+        For count As Integer = 0 To Password.Length - 1
+           for count2 As Integer = 0 To Numbers.Length - 1
+                If Password.substring(count,1) = Number(count2)  Then
+                    Digit = True
+                End If
+            Next
+        Next
+        If Digit = True Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+
 End Module
