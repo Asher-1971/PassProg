@@ -83,7 +83,6 @@ Module Program
             Console.WriteLine("Password accepted.")
             Console.WriteLine()
             Console.WriteLine("Press any key to continue...")
-            Console.ReadKey()
             Console.Clear()
             Choices()
             Main()
