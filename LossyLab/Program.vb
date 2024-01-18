@@ -7,7 +7,7 @@ Module Program
     Sub Choices()
         Console.WriteLine("1. Enter a new password.")
         Console.WriteLine("2. Check your password.")
-        Console.WriteLine("3. Change your password.")
+        Console.WriteLine("3. Change your .")
         Console.WriteLine("4. Quit.")
     End Sub
     Sub PasswordInput()
