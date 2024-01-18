@@ -15,7 +15,7 @@ Module Program
         Console.Write("Enter Password:")
         Password = Console.ReadLine()
     End Sub
-    Sub Main(`)
+    Sub Main()
         Dim ChoiceOption As Integer
         Do
             Call Choices()
