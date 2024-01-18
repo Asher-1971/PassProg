@@ -5,8 +5,8 @@ Module Program
     Dim Password As String
 
     Sub Choices()
-        Console.WriteLine("1. Enter a new password.")
-        Console.WriteLine("2. Check your password.")
+        Console.WriteLine("1. Enter a new .")
+        Console.WriteLine("2. Check your .")
         Console.WriteLine("3. Change your .")
         Console.WriteLine("4. Quit.")
     End Sub
