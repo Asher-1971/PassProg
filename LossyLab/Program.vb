@@ -52,6 +52,7 @@ Module Program
         NoSpaces = NoSpaces(Password)
         UpperCasePresent = UpperCasePresent(Password)
         DigitPresent = DigitPresent(Password)
+        
         While CorrectLength = False or NoSpaces = False or UpperCasePresent = False or DigitPresent = False
             If CorrectLength = False Then
                 Console.WriteLine("Password must be between 10 and 20 characters long.")
@@ -74,7 +75,16 @@ Module Program
             UpperCasePresent = UpperCasePresent(Password)
             DigitPresent = DigitPresent(Password)
         End While
-
+    if CorrectLength = True and NoSpaces = True and UpperCasePresent = True and DigitPresent = True Then
+        Console.WriteLine("Password accepted.")
+        Console.WriteLine()
+        Console.WriteLine("Press any key to continue...")
+        Console.ReadKey()
+        Console.Clear()
+        Choices()
+        Main()
+    End If
+    End Sub
     End Sub
     
     function CorrectLength(byref Password) As Boolean
