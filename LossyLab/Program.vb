@@ -48,7 +48,7 @@ Module Program
         Console.WriteLine("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
-        
+
     End Sub
     
     function CorrectLength(byref Password) As Boolean
@@ -57,6 +57,21 @@ Module Program
             Return True
         Else
             Return False
+        End If
+    End function
+
+    function NoSpaces(byref Password) As Boolean
+        Dim SpacePresent As Boolean
+        SpacePresent = False
+        For count As Integer = 0 To Password.Length - 1
+            If Password.(count) = " " Then
+                SpacePresent = True
+            End If
+        Next
+        If SpacePresent = True Then
+            Return False
+        Else
+            Return True
         End If
     End function
 End Module
