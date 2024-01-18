@@ -58,6 +58,7 @@ Module Program
         DigitPresentResult = DigitPresent(Password)
 
         While CorrectLengthResult = False Or NoSpacesResult = False Or UpperCasePresentResult = False Or DigitPresentResult = False
+
             If CorrectLengthResult = False Then
                 Console.WriteLine("Password must be between 10 and 20 characters long.")
             End If
@@ -71,7 +72,7 @@ Module Program
                 Console.WriteLine("Password must contain at least one digit.")
             End If
             Console.WriteLine()
-            Console.WriteLine("Enter a password:")
+            Console.Write("Enter a password:")
             Password = Console.ReadLine()
             Console.WriteLine()
             CorrectLengthResult = CorrectLength(Password)
