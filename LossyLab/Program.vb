@@ -45,7 +45,7 @@ Module Program
 
     Sub PasswordInput()
         Dim Password As String
-        Console.WriteLine("Enter a password:")
+        Console.Write("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
         Dim CorrectLengthResult As Boolean
