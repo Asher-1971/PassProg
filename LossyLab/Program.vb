@@ -12,17 +12,18 @@ Module Program
         Console.WriteLine("===(3) Change the password.====")
         Console.WriteLine("===(4) Exit the program.=======")
         Console.WriteLine("================================")
-        Console.write("Enter your choice (1-4):")
+        Console.Write("Enter your choice (1-4):")
     End Sub
-   Sub Main()
+    Sub Main()
+        Call Choices()
         Dim ChoiceOption As Integer
-        ChoiceOption = console.ReadLine()
+        ChoiceOption = Console.ReadLine()
 
-        while ChoiceOption > 4 or ChoiceOption < 1
+        While ChoiceOption > 4 Or ChoiceOption < 1
             Console.WriteLine("Invalid choice. Please try again.")
             Console.WriteLine()
             Choices()
-            ChoiceOption = console.ReadLine()
+            ChoiceOption = Console.ReadLine()
         End While
 
         Select Case ChoiceOption
@@ -40,10 +41,10 @@ Module Program
                 Console.ReadKey()
                 Environment.Exit(0)
         End Select
-    End Sub 
-    
+    End Sub
+
     Sub PasswordInput()
-        Dim Password as string
+        Dim Password As String
         Console.WriteLine("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
@@ -53,10 +54,10 @@ Module Program
         NoSpacesResult = NoSpaces(Password)
         Dim UpperCasePresentResult As Boolean
         UpperCasePresentResult = UpperCasePresent(Password)
-        dim DigitPresentResult As Boolean
+        Dim DigitPresentResult As Boolean
         DigitPresentResult = DigitPresent(Password)
-        
-        While CorrectLengthResult = False or NoSpacesResult = False or UpperCasePresentResult = False or DigitPresentResult = False
+
+        While CorrectLengthResult = False Or NoSpacesResult = False Or UpperCasePresentResult = False Or DigitPresentResult = False
             If CorrectLengthResult = False Then
                 Console.WriteLine("Password must be between 10 and 20 characters long.")
             End If
@@ -78,40 +79,40 @@ Module Program
             UpperCasePresentResult = UpperCasePresent(Password)
             DigitPresentResult = DigitPresent(Password)
         End While
-    if CorrectLengthResult = True and NoSpacesResult = True and UpperCasePresentResult = True and DigitPresentResult = True Then
-        Console.WriteLine("Password accepted.")
-        Console.WriteLine()
-        Console.WriteLine("Press any key to continue...")
-        Console.ReadKey()
-        Console.Clear()
-        Choices()
-        Main()
-    End If
-    End Sub
-     
-    sub PasswordCheck()
-       console.WriteLine("lele")
+        If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
+            Console.WriteLine("Password accepted.")
+            Console.WriteLine()
+            Console.WriteLine("Press any key to continue...")
+            Console.ReadKey()
+            Console.Clear()
+            Choices()
+            Main()
+        End If
     End Sub
 
-    sub PasswordChange()
-       console.WriteLine("lele")
+    Sub PasswordCheck()
+        Console.WriteLine("lele")
     End Sub
 
-    
-    function CorrectLength(byref Password) As Boolean
-       
-        If Password.Length >= 10 and Password.Length <=20 Then
+    Sub PasswordChange()
+        Console.WriteLine("lele")
+    End Sub
+
+
+    Function CorrectLength(ByRef Password) As Boolean
+
+        If Password.Length >= 10 And Password.Length <= 20 Then
             Return True
         Else
             Return False
         End If
-    End function
+    End Function
 
-    function NoSpaces(byref Password) As Boolean
+    Function NoSpaces(ByRef Password) As Boolean
         Dim SpacePresent As Boolean
         SpacePresent = False
         For count As Integer = 0 To Password.Length - 1
-            If Password.substring(count,1) = " " Then
+            If Password.substring(count, 1) = " " Then
                 SpacePresent = True
             End If
         Next
@@ -120,13 +121,13 @@ Module Program
         Else
             Return True
         End If
-    End function
+    End Function
 
-    Function UpperCasePresent(byref Password) As Boolean
+    Function UpperCasePresent(ByRef Password) As Boolean
         Dim UpperCase As Boolean
         UpperCase = False
         For count As Integer = 0 To Password.Length - 1
-            If Password.substring(count,1) = Password.substring(count,1).toupper Then
+            If Password.substring(count, 1) = Password.substring(count, 1).toupper Then
                 UpperCase = True
             End If
         Next
@@ -137,13 +138,13 @@ Module Program
         End If
     End Function
 
-    Function DigitPresent(byref Password) As Boolean
-        dim Numbers() As String = {"0","1","2","3","4","5","6","7","8","9"}
+    Function DigitPresent(ByRef Password) As Boolean
+        Dim Numbers() As String = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
         Dim Digit As Boolean
         Digit = False
         For count As Integer = 0 To Password.Length - 1
-           for count2 As Integer = 0 To Numbers.Length - 1
-                If Password.substring(count,1) = Numbers(count2)  Then
+            For count2 As Integer = 0 To Numbers.Length - 1
+                If Password.substring(count, 1) = Numbers(count2) Then
                     Digit = True
                 End If
             Next
