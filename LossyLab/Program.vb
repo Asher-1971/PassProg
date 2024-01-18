@@ -58,7 +58,7 @@ Module Program
         DigitPresentResult = DigitPresent(Password)
 
         While CorrectLengthResult = False Or NoSpacesResult = False Or UpperCasePresentResult = False Or DigitPresentResult = False
-
+            Console.WriteLine("UNACCEPTABLE PASSWORD, your password is rejected for the following reasons:")
             If CorrectLengthResult = False Then
                 Console.WriteLine("Password must be between 10 and 20 characters long.")
             End If
