@@ -44,14 +44,16 @@ Module Program
     
     Sub PasswordInput()
         Dim CorrectLength, NoSpaces, UpperCasePresent, DigitPresent As Boolean
-         
+        Dim Password as string
+        Console.WriteLine("Enter a password:")
+        Password = Console.ReadLine()
+        Console.WriteLine()
+        
     End Sub
     
-    function CorrectLength() As Boolean
-        Dim PasswordLength As Integer
-        Console.WriteLine("Enter a password that is at least 8 characters long.")
-        PasswordLength = Console.ReadLine()
-        If PasswordLength >= 8 Then
+    function CorrectLength(byref Password) As Boolean
+       
+        If Password.Length >= 10 and Password.Length <=20 Then
             Return True
         Else
             Return False
