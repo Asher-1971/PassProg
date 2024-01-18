@@ -64,7 +64,7 @@ Module Program
         Dim SpacePresent As Boolean
         SpacePresent = False
         For count As Integer = 0 To Password.Length - 1
-            If Password.(count) = " " Then
+            If Password.substring(count,1) = " " Then
                 SpacePresent = True
             End If
         Next
@@ -74,4 +74,19 @@ Module Program
             Return True
         End If
     End function
+
+    Function UpperCasePresent(byref Password) As Boolean
+        Dim UpperCase As Boolean
+        UpperCase = False
+        For count As Integer = 0 To Password.Length - 1
+            If Password.substring(count,1) = Password.substring(count,1).toupper Then
+                UpperCase = True
+            End If
+        Next
+        If UpperCase = True Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Module
