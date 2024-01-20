@@ -15,7 +15,7 @@ Module Program
         Console.WriteLine("================================")
         Console.Write("Enter your choice (1-4):")
     End Sub
-    
+
     Sub Main()
         Call Choices()
         Dim ChoiceOption As Integer
@@ -40,7 +40,7 @@ Module Program
                 Console.WriteLine("Goodbye.")
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
-                Console.ReadKey()
+      
                 Environment.Exit(0)
         End Select
     End Sub
