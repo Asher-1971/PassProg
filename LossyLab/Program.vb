@@ -5,6 +5,7 @@ Module Program
     Dim Password As String
 
     Sub Choices()
+        console.writeline()
         Console.WriteLine("========PASSWORD MANAGER========")
         Console.WriteLine("===========MAIN MENU============")
         Console.WriteLine("===(1) Enter a new password.====")
@@ -14,6 +15,7 @@ Module Program
         Console.WriteLine("================================")
         Console.Write("Enter your choice (1-4):")
     End Sub
+    
     Sub Main()
         Call Choices()
         Dim ChoiceOption As Integer
