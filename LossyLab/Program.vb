@@ -123,6 +123,15 @@ Module Program
                 ComparePassword = Console.ReadLine()
             End While
             FileClose(1)
+            If ComparePassword = LineInput(1) Then
+                Console.WriteLine()
+                Console.WriteLine("PASSWORD MATCH FOUND")
+                Console.WriteLine("Your Password is the same")
+                Console.WriteLine()
+                Console.WriteLine("Press any key to continue...")
+                Console.WriteLine()
+                Main()
+            End If
         End If
     End Sub
 
