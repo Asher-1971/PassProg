@@ -4,6 +4,7 @@ Imports System.IO
 Module Program
     Dim Password As String
     Dim InputFlag As Boolean
+    Dim ChoiceOption As Integer
 
 
     Sub Choices()
@@ -20,7 +21,6 @@ Module Program
 
     Sub Main()
         Call Choices()
-        Dim ChoiceOption As Integer
         ChoiceOption = Console.ReadLine()
 
 
@@ -94,7 +94,11 @@ Module Program
             InputFlag = True
             Console.WriteLine()
             Console.WriteLine("Press any key to continue...")
-            Main()
+
+            If ChoiceOption = 1 Then
+                Main()
+            End If
+
         End If
     End Sub
 
@@ -108,22 +112,22 @@ Module Program
         End While
 
         If PasswordInputPresent(InputFlag) = True Then
-            Dim ComparePassword As String
-            Console.Write("Enter the Password For CHECKING")
-            ComparePassword = Console.ReadLine()
+
+            Console.WriteLine("SET A PASSWORD TO COMPARE ")
+            Call PasswordInput()
             Console.WriteLine()
 
+
             FileOpen(1, "Password.txt", OpenMode.Input)
-            While ComparePassword <> LineInput(1)
+            While Password <> LineInput(1)
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("Your Password is not the same")
                 Console.WriteLine()
-                Console.Write("Enter the Password For CHECKING")
-                ComparePassword = Console.ReadLine()
+                Call PasswordInput()
             End While
             FileClose(1)
-            If ComparePassword = LineInput(1) Then
+            If Password = LineInput(1) Then
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH FOUND")
                 Console.WriteLine("Your Password is the same")
