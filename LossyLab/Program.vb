@@ -99,7 +99,7 @@ Module Program
     End Sub
 
     Sub PasswordCheck()
-        while PasswordInputPresent(inputflag) = False 
+        while PasswordInputPresent(InputFlag) = False 
             Console.WriteLine("No password has been entered yet.")
             console.writeline("Please set a password first")
             Console.WriteLine()
@@ -108,13 +108,13 @@ Module Program
             Main()
         End While
 
-        if PasswordInputPresent(inputflag) = True 
+        if PasswordInputPresent(InputFlag) = True 
             Console.WriteLine("lele u passed")
         End If
     End Sub
 
     Sub PasswordChange()
-        Console.WriteLine("lele")
+        Console.WriteLine("....")
     End Sub
 
 
@@ -175,7 +175,7 @@ Module Program
         End If
     End Function
 
-    function PasswordInputPresent(byref InputFlag) As Bollean 
+    Function PasswordInputPresent(byval InputFlag As Boolean) As Bollean 
     
     if InputFlag = True Then 
         Return True 
