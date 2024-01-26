@@ -3,6 +3,8 @@ Imports System.IO
 
 Module Program
     Dim Password As String
+    Dim InputFlag as Boolean 
+
 
     Sub Choices()
         console.writeline()
@@ -20,8 +22,7 @@ Module Program
         Call Choices()
         Dim ChoiceOption As Integer
         ChoiceOption = Console.ReadLine()
-        Dim InputFlag as Boolean 
-        InputFlag = False
+        
 
         While ChoiceOption > 4 Or ChoiceOption < 1
             Console.WriteLine("Invalid choice. Please try again.")
@@ -48,7 +49,7 @@ Module Program
     End Sub
 
     Sub PasswordInput() 
-        inputflag = false
+        InputFlag = false
         Dim Password As String
         Console.Write("Enter a password:")
         Password = Console.ReadLine()
@@ -175,12 +176,13 @@ Module Program
         End If
     End Function
 
-    Function PasswordInputPresent(byval InputFlag As Boolean) As Bollean 
+    Function PasswordInputPresent(byval InputFlag As Boolean) As Boolean 
     
     if InputFlag = True Then 
         Return True 
     Elseif InputFlag = False Then 
         Return False
+    end if 
     
     End Function 
 
