@@ -20,6 +20,8 @@ Module Program
         Call Choices()
         Dim ChoiceOption As Integer
         ChoiceOption = Console.ReadLine()
+        Dim InputFlag as Boolean 
+        InputFlag = False
 
         While ChoiceOption > 4 Or ChoiceOption < 1
             Console.WriteLine("Invalid choice. Please try again.")
@@ -45,7 +47,8 @@ Module Program
         End Select
     End Sub
 
-    Sub PasswordInput()
+    Sub PasswordInput() 
+        inputflag = false
         Dim Password As String
         Console.Write("Enter a password:")
         Password = Console.ReadLine()
@@ -83,7 +86,10 @@ Module Program
             DigitPresentResult = DigitPresent(Password)
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
+            fileopen(1, "password.txt", openmode.output)
+            filewrite(1, Password)
             Console.WriteLine("Password accepted.")
+            InputFlag = True
             Console.WriteLine()
             Console.WriteLine("Press any key to continue...")
             Console.Clear()
@@ -93,7 +99,18 @@ Module Program
     End Sub
 
     Sub PasswordCheck()
-        Console.WriteLine("lele")
+        while PasswordInputPresent(inputflag) = False 
+            Console.WriteLine("No password has been entered yet.")
+            console.writeline("Please set a password first")
+            Console.WriteLine()
+            Console.WriteLine("Press any key to continue...")
+            Choices()
+            Main()
+        End While
+
+        if PasswordInputPresent(inputflag) = True 
+            Console.WriteLine("lele u passed")
+        End If
     End Sub
 
     Sub PasswordChange()
@@ -158,5 +175,14 @@ Module Program
         End If
     End Function
 
+    function PasswordInputPresent(byref InputFlag) As Bollean 
+    
+    if InputFlag = True Then 
+        Return True 
+    Elseif InputFlag = False Then 
+        Return False
+    
+    End Function 
 
+    
 End Module
