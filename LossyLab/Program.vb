@@ -3,11 +3,11 @@ Imports System.IO
 
 Module Program
     Dim Password As String
-    Dim InputFlag as Boolean 
+    Dim InputFlag As Boolean
 
 
     Sub Choices()
-        console.writeline()
+        Console.WriteLine()
         Console.WriteLine("========PASSWORD MANAGER========")
         Console.WriteLine("===========MAIN MENU============")
         Console.WriteLine("===(1) Enter a new password.====")
@@ -22,7 +22,7 @@ Module Program
         Call Choices()
         Dim ChoiceOption As Integer
         ChoiceOption = Console.ReadLine()
-        
+
 
         While ChoiceOption > 4 Or ChoiceOption < 1
             Console.WriteLine("Invalid choice. Please try again.")
@@ -43,13 +43,13 @@ Module Program
                 Console.WriteLine("Goodbye.")
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
-      
+
                 Environment.Exit(0)
         End Select
     End Sub
 
-    Sub PasswordInput() 
-        InputFlag = false
+    Sub PasswordInput()
+        InputFlag = False
         Dim Password As String
         Console.Write("Enter a password:")
         Password = Console.ReadLine()
@@ -87,35 +87,57 @@ Module Program
             DigitPresentResult = DigitPresent(Password)
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
-            fileopen(1, "password.txt", openmode.output)
-            filewrite(1, Password)
+            FileOpen(1, "password.txt", OpenMode.Output)
+            PrintLine(1, Password)
+            FileClose(1)
             Console.WriteLine("Password accepted.")
             InputFlag = True
             Console.WriteLine()
             Console.WriteLine("Press any key to continue...")
-            Console.Clear()
-            Choices()
             Main()
         End If
     End Sub
 
     Sub PasswordCheck()
-        while PasswordInputPresent(InputFlag) = False 
+        While PasswordInputPresent(InputFlag) = False
             Console.WriteLine("No password has been entered yet.")
-            console.writeline("Please set a password first")
+            Console.WriteLine("Please set a password first")
             Console.WriteLine()
             Console.WriteLine("Press any key to continue...")
-            Choices()
             Main()
         End While
 
-        if PasswordInputPresent(InputFlag) = True 
-            Console.WriteLine("lele u passed")
+        If PasswordInputPresent(InputFlag) = True Then
+            Dim ComparePassword As String
+            Console.Write("Enter the Password For CHECKING")
+            ComparePassword = Console.ReadLine()
+            Console.WriteLine()
+
+            FileOpen(1, "Password.txt", OpenMode.Input)
+            While ComparePassword <> LineInput(1)
+                Console.WriteLine()
+                Console.WriteLine("PASSWORD MATCH NOT FOUND")
+                Console.WriteLine("Your Password is not the same")
+                Console.WriteLine()
+                Console.Write("Enter the Password For CHECKING")
+                ComparePassword = Console.ReadLine()
+            End While
+            FileClose(1)
         End If
     End Sub
 
     Sub PasswordChange()
-        Console.WriteLine("....")
+        While PasswordInputPresent(InputFlag) = False
+            Console.WriteLine("No password has been entered yet.")
+            Console.WriteLine("Please set a password first")
+            Console.WriteLine()
+            Console.WriteLine("Press any key to continue...")
+            Main()
+        End While
+
+        If PasswordInputPresent(InputFlag) = True Then
+            Console.WriteLine("lele u passed")
+        End If
     End Sub
 
 
@@ -176,15 +198,16 @@ Module Program
         End If
     End Function
 
-    Function PasswordInputPresent(byval InputFlag As Boolean) As Boolean 
-    
-    if InputFlag = True Then 
-        Return True 
-    Elseif InputFlag = False Then 
-        Return False
-    end if 
-    
-    End Function 
+    Function PasswordInputPresent(ByRef InputFlag As Boolean) As Boolean
 
-    
+        If InputFlag = True Then
+            Return True
+        End If
+
+        If InputFlag = False Then
+            Return False
+        End If
+
+    End Function
+
 End Module
