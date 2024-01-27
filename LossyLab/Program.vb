@@ -123,6 +123,7 @@ Module Program
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("Your Password is not the same")
+                console.writeline("THE PASSWORD YOU ENTERS IS->" & Password)
                 Console.WriteLine()
                 Call PasswordInput()
             End While
