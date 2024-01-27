@@ -131,10 +131,9 @@ Module Program
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             While Password <> LineInput(1)
-                if PC > 1 then 
-                   FileOpen(1, "Password.txt", OpenMode.Input)
-                end if
-
+                If PC > 1 Then
+                    FileOpen(1, "Password.txt", OpenMode.Input)
+                End If
 
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
