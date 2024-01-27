@@ -123,11 +123,13 @@ Module Program
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("Your Password is not the same")
-                console.writeline("THE PASSWORD YOU ENTERS IS->" & Password)
+                console.writeline(Password)
+                Console.WriteLine("THE PASSWORD YOU ENTERED IS -> {0}", Password)
                 Console.WriteLine()
+                fileClose(1)
                 Call PasswordInput()
             End While
-            FileClose(1)
+            
             If Password = LineInput(1) Then
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH FOUND")
