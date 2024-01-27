@@ -89,19 +89,24 @@ Module Program
             DigitPresentResult = DigitPresent(Password)
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
-            if ChoiceOption = 2 or ChoiceOption = 3 then 
-                fileclose(1)
+            If ChoiceOption = 2 Then
+                FileOpen(2, "password2.txt", OpenMode.Output)
+                PrintLine(2, Password)
+                FileClose(2)
+                Console.WriteLine("Password accepted for comaprison.")
+                InputFlag = True
+                Console.WriteLine()
+                Console.WriteLine("Press any key to continue...")
             End If
-            
-            FileOpen(1, "password.txt", OpenMode.Output)
-            PrintLine(1, Password)
-            FileClose(1)
-            Console.WriteLine("Password accepted.")
-            InputFlag = True
-            Console.WriteLine()
-            Console.WriteLine("Press any key to continue...")
 
             If ChoiceOption = 1 Then
+                FileOpen(1, "password.txt", OpenMode.Output)
+                PrintLine(1, Password)
+                FileClose(1)
+                Console.WriteLine("Password accepted.")
+                InputFlag = True
+                Console.WriteLine()
+                Console.WriteLine("Press any key to continue...")
                 Main()
             End If
 
