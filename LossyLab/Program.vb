@@ -5,8 +5,8 @@ Module Program
     Dim Password As String
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
-
-
+    dim PC as integer
+    
     Sub Choices()
         Console.WriteLine()
         Console.WriteLine("========PASSWORD MANAGER========")
@@ -30,6 +30,8 @@ Module Program
             Choices()
             ChoiceOption = Console.ReadLine()
         End While
+        
+        PC =+ 1
 
         Select Case ChoiceOption
             Case 1
@@ -87,6 +89,10 @@ Module Program
             DigitPresentResult = DigitPresent(Password)
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
+            if ChoiceOption = 2 or ChoiceOption = 3 then 
+                fileclose(1)
+            End If
+            
             FileOpen(1, "password.txt", OpenMode.Output)
             PrintLine(1, Password)
             FileClose(1)
@@ -120,13 +126,18 @@ Module Program
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             While Password <> LineInput(1)
+                if PC > 1 then 
+                   FileOpen(1, "Password.txt", OpenMode.Input)
+                end if
+
+
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("Your Password is not the same")
                 console.writeline(Password)
                 Console.WriteLine("THE PASSWORD YOU ENTERED IS -> {0}", Password)
                 Console.WriteLine()
-                fileClose(1)
+                
                 Call PasswordInput()
             End While
             
@@ -139,6 +150,7 @@ Module Program
                 Console.WriteLine()
                 Main()
             End If
+            fileClose(1)
         End If
     End Sub
 
