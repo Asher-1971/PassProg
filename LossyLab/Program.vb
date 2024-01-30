@@ -138,11 +138,14 @@ Module Program
             If Password = OGPasswrod Then
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH FOUND")
-                Console.WriteLine("Your Password is the same")
+                Console.WriteLine("Your Password is correct")
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
                 Console.WriteLine()
-                Main()
+
+                If ChoiceOption = 3 Then
+                    Main()
+                End If
             End If
 
         End If
