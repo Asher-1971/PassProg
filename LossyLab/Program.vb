@@ -97,7 +97,10 @@ Module Program
                 InputFlag = True
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
-                Main()
+                if ChoiceOption = 1 then
+                    Main()
+                End If
+                
             End If
 
         End If
@@ -162,8 +165,8 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
 
-
-            Call PasswordChange()
+        console.writeline("hi there")
+        call  Choices()
 
 
 
