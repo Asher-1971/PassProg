@@ -1,12 +1,11 @@
 Imports System
 Imports System.IO
-
 Module Program
     Dim Password As String
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
-    dim PC as integer
-    
+    Dim PC As Integer
+
     Sub Choices()
         Console.WriteLine()
         Console.WriteLine("========PASSWORD MANAGER========")
@@ -30,8 +29,8 @@ Module Program
             Choices()
             ChoiceOption = Console.ReadLine()
         End While
-        
-        PC =+ 1
+
+
 
         Select Case ChoiceOption
             Case 1
@@ -45,7 +44,6 @@ Module Program
                 Console.WriteLine("Goodbye.")
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
-
                 Environment.Exit(0)
         End Select
     End Sub
@@ -89,15 +87,7 @@ Module Program
             DigitPresentResult = DigitPresent(Password)
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
-            If ChoiceOption = 2 Then
-                FileOpen(2, "password2.txt", OpenMode.Output)
-                PrintLine(2, Password)
-                FileClose(2)
-                Console.WriteLine("Password accepted for comaprison.")
-                InputFlag = True
-                Console.WriteLine()
-                Console.WriteLine("Press any key to continue...")
-            End If
+
 
             If ChoiceOption = 1 Then
                 FileOpen(1, "password.txt", OpenMode.Output)
@@ -130,22 +120,20 @@ Module Program
 
 
             FileOpen(1, "Password.txt", OpenMode.Input)
-            While Password <> LineInput(1)
-                If PC > 1 Then
-                    FileOpen(1, "Password.txt", OpenMode.Input)
-                End If
+            Dim OGPasswrod As String
+            FileClose(1)
 
+            OGPasswrod = LineInput(1)
+            While Password <> OGPasswrod
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("Your Password is not the same")
-                console.writeline(Password)
-                Console.WriteLine("THE PASSWORD YOU ENTERED IS -> {0}", Password)
                 Console.WriteLine()
-                
+
                 Call PasswordInput()
             End While
-            
-            If Password = LineInput(1) Then
+
+            If Password = OGPasswrod Then
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH FOUND")
                 Console.WriteLine("Your Password is the same")
@@ -154,7 +142,7 @@ Module Program
                 Console.WriteLine()
                 Main()
             End If
-            fileClose(1)
+
         End If
     End Sub
 
@@ -171,6 +159,8 @@ Module Program
             Console.WriteLine("lele u passed")
         End If
     End Sub
+
+
 
 
     Function CorrectLength(ByRef Password) As Boolean
