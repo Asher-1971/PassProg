@@ -129,7 +129,7 @@ Module Program
             While Password <> OGPasswrod
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
-                Console.WriteLine("Your Password is not the same")
+                Console.WriteLine("the password you entered is incorrect")
                 Console.WriteLine()
 
                 Call PasswordInput()
@@ -158,7 +158,9 @@ Module Program
         End While
 
         If PasswordInputPresent(InputFlag) = True Then
-            Console.WriteLine(".....")
+            Console.WriteLine("WELCOME TO PASSWORD CHANGING UTILITY")
+            Call PasswordChange()
+
         End If
     End Sub
 
