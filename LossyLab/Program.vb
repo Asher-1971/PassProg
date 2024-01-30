@@ -146,7 +146,7 @@ Module Program
                 Console.WriteLine("Press any key to continue...")
                 Console.WriteLine()
 
-                If ChoiceOption = 3 Then
+                If ChoiceOption = 2 Then
                     Main()
                 End If
             End If
@@ -165,10 +165,11 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
 
-        console.writeline("hi there")
-        call  Choices()
-
-
+        Console.WriteLine("Welcome to password changing utility")
+        call  PasswordCheck()
+        Console.writeline("You have sucessfulyy verified your Password")
+        Console.WriteLine() 
+        call PasswordInput()
 
         End If
     End Sub
