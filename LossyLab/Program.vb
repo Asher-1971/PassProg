@@ -114,7 +114,7 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
 
-            Console.WriteLine("SET A PASSWORD TO COMPARE ")
+            Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
 
