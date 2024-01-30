@@ -158,7 +158,7 @@ Module Program
         End While
 
         If PasswordInputPresent(InputFlag) = True Then
-            Console.WriteLine("lele u passed")
+            Console.WriteLine(".....")
         End If
     End Sub
 
