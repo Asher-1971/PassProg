@@ -30,7 +30,7 @@ Module Program
             ChoiceOption = Console.ReadLine()
         End While
 
-
+        PC = +1
 
         Select Case ChoiceOption
             Case 1
@@ -50,7 +50,6 @@ Module Program
 
     Sub PasswordInput()
         InputFlag = False
-        Dim Password As String
         Console.Write("Enter a password:")
         Password = Console.ReadLine()
         Console.WriteLine()
@@ -122,9 +121,11 @@ Module Program
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             Dim OGPasswrod As String
+            OGPasswrod = LineInput(1)
             FileClose(1)
 
-            OGPasswrod = LineInput(1)
+            Console.WriteLine(Password)
+
             While Password <> OGPasswrod
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
