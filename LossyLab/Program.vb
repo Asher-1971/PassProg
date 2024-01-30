@@ -88,6 +88,7 @@ Module Program
         End While
         If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
 
+            Password = Password
 
             If ChoiceOption = 1 Then
                 FileOpen(1, "password.txt", OpenMode.Output)
