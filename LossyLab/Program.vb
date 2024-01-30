@@ -161,10 +161,11 @@ Module Program
         End While
 
         If PasswordInputPresent(InputFlag) = True Then
-            Console.WriteLine("WELCOME TO PASSWORD CHANGING UTILITY")
+
+
             Call PasswordChange()
 
-            Call PasswordInput()
+
 
         End If
     End Sub
