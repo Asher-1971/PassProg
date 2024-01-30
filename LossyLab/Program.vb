@@ -89,7 +89,7 @@ Module Program
 
             InputFlag = True
 
-            If ChoiceOption = 1 Then
+            If ChoiceOption = 1 Or ChoiceOption = 3 Then
                 FileOpen(1, "password.txt", OpenMode.Output)
                 PrintLine(1, Password)
                 FileClose(1)
@@ -163,6 +163,8 @@ Module Program
         If PasswordInputPresent(InputFlag) = True Then
             Console.WriteLine("WELCOME TO PASSWORD CHANGING UTILITY")
             Call PasswordChange()
+
+            Call PasswordInput()
 
         End If
     End Sub
