@@ -131,7 +131,7 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
             ChangePassWord = False
-
+            CreatePassword = 1
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
