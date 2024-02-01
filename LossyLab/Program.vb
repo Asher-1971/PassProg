@@ -59,7 +59,7 @@ Module Program
 
         if CreatePassword = 0 Then
         Console.WriteLine("Welcome to password setting utility")
-        CretePassword = 1
+        CreatePassword = 1
         
         InputFlag = False
         Console.Write("Enter a password:")
