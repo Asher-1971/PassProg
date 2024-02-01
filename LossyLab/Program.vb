@@ -77,6 +77,7 @@ Module Program
                 Console.WriteLine("(^_^)Password must contain at least one digit.")
             End If
             Console.WriteLine()
+            Console.WriteLine("RE-ENTER A PASSWORD")
             Console.Write("Enter a password:")
             Password = Console.ReadLine()
             Console.WriteLine()
@@ -97,10 +98,10 @@ Module Program
                 InputFlag = True
                 Console.WriteLine()
                 Console.WriteLine("Press any key to continue...")
-                if ChoiceOption = 1 then
+                If ChoiceOption = 1 Then
                     Main()
                 End If
-                
+
             End If
 
         End If
@@ -127,8 +128,6 @@ Module Program
             OGPasswrod = LineInput(1)
             FileClose(1)
 
-            Console.WriteLine(Password)
-
             While Password <> OGPasswrod
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
@@ -149,6 +148,12 @@ Module Program
                 If ChoiceOption = 2 Then
                     Main()
                 End If
+
+                If ChoiceOption = 3 Then
+                    Console.WriteLine("YOU HAVE VERIFIIED THE PASSWORD FOR CHANGING IT ")
+                End If
+
+
             End If
 
         End If
@@ -165,11 +170,11 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
 
-        Console.WriteLine("Welcome to password changing utility")
-        call  PasswordCheck()
-        Console.writeline("You have sucessfulyy verified your Password")
-        Console.WriteLine() 
-        call PasswordInput()
+            Console.WriteLine("Welcome to password changing utility")
+            Call PasswordCheck()
+            Console.WriteLine("You have sucessfulyy verified your Password")
+            Console.WriteLine("Now Set a new Password")
+            Call PasswordInput()
 
         End If
     End Sub
