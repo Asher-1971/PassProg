@@ -4,7 +4,7 @@ Module Program
     Dim Password As String
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
-    Dim PC As Integer
+    Dim ChangePassWord As Boolean
 
     Sub Choices()
         Console.WriteLine()
@@ -30,7 +30,7 @@ Module Program
             ChoiceOption = Console.ReadLine()
         End While
 
-        PC = +1
+        
 
         Select Case ChoiceOption
             Case 1
@@ -90,7 +90,7 @@ Module Program
 
             InputFlag = True
 
-            If ChoiceOption = 1 Or ChoiceOption = 3 Then
+            If ChoiceOption = 1  or ChangePassWord = True  Then
                 FileOpen(1, "password.txt", OpenMode.Output)
                 PrintLine(1, Password)
                 FileClose(1)
@@ -117,11 +117,14 @@ Module Program
         End While
 
         If PasswordInputPresent(InputFlag) = True Then
+            ChangePassWord = False
 
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
+            dim StoredPassword As String = Password
 
+            console.writeline(StoredPassword)
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             Dim OGPasswrod As String
@@ -168,13 +171,15 @@ Module Program
             Main()
         End While
 
-        If PasswordInputPresent(InputFlag) = True Then
 
+        If PasswordInputPresent(InputFlag) = True Then
+            
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
-            Console.WriteLine("You have sucessfulyy verified your Password")
+            ChangePassWord = True
             Console.WriteLine("Now Set a new Password ")
             Call PasswordInput()
+            call Main()
 
         End If
     End Sub
