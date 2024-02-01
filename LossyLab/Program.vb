@@ -51,7 +51,7 @@ Module Program
 
     Sub PasswordInput()
 
-        If CreatePassword = True And ChoiceOption = 1 Then
+        If CreatePassword = True And ChoiceOption =1 Then
             Console.WriteLine("YOU CAN SET THE PASSWORD ONLY ONCE")
             Call Main()
         End If
@@ -132,6 +132,7 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
             ChangePassWord = False
+            CreatePassword = False
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
@@ -147,7 +148,6 @@ Module Program
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("the password you entered is incorrect")
                 Console.WriteLine()
-
                 Call PasswordInput()
             End While
 
@@ -184,7 +184,7 @@ Module Program
 
 
         If PasswordInputPresent(InputFlag) = True Then
-
+            CreatePassword = False
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             ChangePassWord = True
