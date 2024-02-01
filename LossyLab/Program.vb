@@ -186,7 +186,7 @@ Module Program
 
 
         If PasswordInputPresent(InputFlag) = True Then
-            
+            CreatePassword = 1
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             ChangePassWord = True
