@@ -5,6 +5,7 @@ Module Program
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
     Dim ChangePassWord As Boolean
+    Dim CretePassword as Integer = 0
 
     Sub Choices()
         Console.WriteLine()
@@ -49,6 +50,17 @@ Module Program
     End Sub
 
     Sub PasswordInput()
+        
+     if CretePassword > 0 Then
+     Console.writeline("YOU CAN SET THE PASSWORD ONLY ONCE")
+     end if 
+
+
+
+        if CretePassword = 0 Then
+        Console.WriteLine("Welcome to password setting utility")
+        CretePassword = 1
+        
         InputFlag = False
         Console.Write("Enter a password:")
         Password = Console.ReadLine()
@@ -104,6 +116,7 @@ Module Program
 
             End If
 
+        End If
         End If
     End Sub
 
