@@ -193,7 +193,6 @@ Module Program
             ChangePassWord = True
             Console.WriteLine("Now Set a new Password ")
             Call PasswordInput()
-            Call Main()
 
         End If
     End Sub
