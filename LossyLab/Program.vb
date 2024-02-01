@@ -191,9 +191,8 @@ Module Program
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             ChangePassWord = True
-            Console.WriteLine("Now Set a new Password ")
-            Call PasswordInput()
-            Call Main()
+            Console.WriteLine("Now Set a new Password.... ")
+            call Choices()
 
         End If
     End Sub
