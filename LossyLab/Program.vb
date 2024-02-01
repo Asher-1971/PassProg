@@ -53,6 +53,7 @@ Module Program
 
         If CreatePassword > 0 Then
             Console.WriteLine("YOU CAN SET THE PASSWORD ONLY ONCE")
+            Call Main()
         End If
 
 
@@ -131,7 +132,7 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
             ChangePassWord = False
-            CreatePassword = 1
+            CreatePassword = 0
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
@@ -186,7 +187,7 @@ Module Program
 
 
         If PasswordInputPresent(InputFlag) = True Then
-            CreatePassword = 1
+            CreatePassword = 0
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             ChangePassWord = True
