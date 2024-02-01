@@ -59,7 +59,9 @@ Module Program
 
 
         If CreatePassword = False Then
-            Console.WriteLine("Welcome to password setting utility")
+            If ChoiceOption = 1 Then
+                Console.WriteLine("Welcome to password setting utility")
+            End If
             CreatePassword = True
 
             InputFlag = False
@@ -144,6 +146,7 @@ Module Program
             FileClose(1)
 
             While Password <> OGPasswrod
+                CreatePassword = False
                 Console.WriteLine()
                 Console.WriteLine("PASSWORD MATCH NOT FOUND")
                 Console.WriteLine("the password you entered is incorrect")
