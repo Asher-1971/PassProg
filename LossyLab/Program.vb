@@ -5,7 +5,7 @@ Module Program
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
     Dim ChangePassWord As Boolean
-    Dim CreatePassword As Integer = 0
+    Dim CreatePassword As Boolean
 
     Sub Choices()
         Console.WriteLine()
@@ -51,16 +51,16 @@ Module Program
 
     Sub PasswordInput()
 
-        If CreatePassword > 0 Then
+        If CreatePassword = True And ChoiceOption = 1 Then
             Console.WriteLine("YOU CAN SET THE PASSWORD ONLY ONCE")
             Call Main()
         End If
 
 
 
-        If CreatePassword = 0 Then
+        If CreatePassword = False Then
             Console.WriteLine("Welcome to password setting utility")
-            CreatePassword = 1
+            CreatePassword = True
 
             InputFlag = False
             Console.Write("Enter a password:")
@@ -132,13 +132,10 @@ Module Program
 
         If PasswordInputPresent(InputFlag) = True Then
             ChangePassWord = False
-            CreatePassword = 0
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
             Dim StoredPassword As String = Password
-
-            Console.WriteLine(StoredPassword)
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             Dim OGPasswrod As String
@@ -187,7 +184,7 @@ Module Program
 
 
         If PasswordInputPresent(InputFlag) = True Then
-            CreatePassword = 0
+            CreatePassword = False
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             ChangePassWord = True
