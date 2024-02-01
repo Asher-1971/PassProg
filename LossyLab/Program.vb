@@ -5,7 +5,7 @@ Module Program
     Dim InputFlag As Boolean
     Dim ChoiceOption As Integer
     Dim ChangePassWord As Boolean
-    Dim CreatePassword as Integer = 0
+    Dim CreatePassword As Integer = 0
 
     Sub Choices()
         Console.WriteLine()
@@ -31,7 +31,7 @@ Module Program
             ChoiceOption = Console.ReadLine()
         End While
 
-        
+
 
         Select Case ChoiceOption
             Case 1
@@ -50,73 +50,73 @@ Module Program
     End Sub
 
     Sub PasswordInput()
-        
-     if CreatePassword > 0 Then
-     Console.writeline("YOU CAN SET THE PASSWORD ONLY ONCE")
-     end if 
+
+        If CreatePassword > 0 Then
+            Console.WriteLine("YOU CAN SET THE PASSWORD ONLY ONCE")
+        End If
 
 
 
-        if CreatePassword = 0 Then
-        Console.WriteLine("Welcome to password setting utility")
-        CreatePassword = 1
-        
-        InputFlag = False
-        Console.Write("Enter a password:")
-        Password = Console.ReadLine()
-        Console.WriteLine()
-        Dim CorrectLengthResult As Boolean
-        CorrectLengthResult = CorrectLength(Password)
-        Dim NoSpacesResult As Boolean
-        NoSpacesResult = NoSpaces(Password)
-        Dim UpperCasePresentResult As Boolean
-        UpperCasePresentResult = UpperCasePresent(Password)
-        Dim DigitPresentResult As Boolean
-        DigitPresentResult = DigitPresent(Password)
+        If CreatePassword = 0 Then
+            Console.WriteLine("Welcome to password setting utility")
+            CreatePassword = 1
 
-        While CorrectLengthResult = False Or NoSpacesResult = False Or UpperCasePresentResult = False Or DigitPresentResult = False
-            Console.WriteLine("UNACCEPTABLE PASSWORD, your password is rejected for the following reasons:")
-            If CorrectLengthResult = False Then
-                Console.WriteLine("(^_^)Password must be between 10 and 20 characters long.")
-            End If
-            If NoSpacesResult = False Then
-                Console.WriteLine("(^_^)Password must not contain any spaces.")
-            End If
-            If UpperCasePresentResult = False Then
-                Console.WriteLine("(^_^)Password must contain at least one uppercase letter.")
-            End If
-            If DigitPresentResult = False Then
-                Console.WriteLine("(^_^)Password must contain at least one digit.")
-            End If
-            Console.WriteLine()
-            Console.WriteLine("RE-ENTER A PASSWORD")
+            InputFlag = False
             Console.Write("Enter a password:")
             Password = Console.ReadLine()
             Console.WriteLine()
+            Dim CorrectLengthResult As Boolean
             CorrectLengthResult = CorrectLength(Password)
+            Dim NoSpacesResult As Boolean
             NoSpacesResult = NoSpaces(Password)
+            Dim UpperCasePresentResult As Boolean
             UpperCasePresentResult = UpperCasePresent(Password)
+            Dim DigitPresentResult As Boolean
             DigitPresentResult = DigitPresent(Password)
-        End While
-        If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
 
-            InputFlag = True
-
-            If ChoiceOption = 1  or ChangePassWord = True  Then
-                FileOpen(1, "password.txt", OpenMode.Output)
-                PrintLine(1, Password)
-                FileClose(1)
-                Console.WriteLine("Password accepted.")
-                InputFlag = True
+            While CorrectLengthResult = False Or NoSpacesResult = False Or UpperCasePresentResult = False Or DigitPresentResult = False
+                Console.WriteLine("UNACCEPTABLE PASSWORD, your password is rejected for the following reasons:")
+                If CorrectLengthResult = False Then
+                    Console.WriteLine("(^_^)Password must be between 10 and 20 characters long.")
+                End If
+                If NoSpacesResult = False Then
+                    Console.WriteLine("(^_^)Password must not contain any spaces.")
+                End If
+                If UpperCasePresentResult = False Then
+                    Console.WriteLine("(^_^)Password must contain at least one uppercase letter.")
+                End If
+                If DigitPresentResult = False Then
+                    Console.WriteLine("(^_^)Password must contain at least one digit.")
+                End If
                 Console.WriteLine()
-                Console.WriteLine("Press any key to continue...")
-                If ChoiceOption = 1 Then
-                    Main()
+                Console.WriteLine("RE-ENTER A PASSWORD")
+                Console.Write("Enter a password:")
+                Password = Console.ReadLine()
+                Console.WriteLine()
+                CorrectLengthResult = CorrectLength(Password)
+                NoSpacesResult = NoSpaces(Password)
+                UpperCasePresentResult = UpperCasePresent(Password)
+                DigitPresentResult = DigitPresent(Password)
+            End While
+            If CorrectLengthResult = True And NoSpacesResult = True And UpperCasePresentResult = True And DigitPresentResult = True Then
+
+                InputFlag = True
+
+                If ChoiceOption = 1 Or ChangePassWord = True Then
+                    FileOpen(1, "password.txt", OpenMode.Output)
+                    PrintLine(1, Password)
+                    FileClose(1)
+                    Console.WriteLine("Password accepted.")
+                    InputFlag = True
+                    Console.WriteLine()
+                    Console.WriteLine("Press any key to continue...")
+                    If ChoiceOption = 1 Then
+                        Main()
+                    End If
+
                 End If
 
             End If
-
-        End If
         End If
     End Sub
 
@@ -135,9 +135,9 @@ Module Program
             Console.WriteLine("ENTER THE SET PASSWORD ")
             Call PasswordInput()
             Console.WriteLine()
-            dim StoredPassword As String = Password
+            Dim StoredPassword As String = Password
 
-            console.writeline(StoredPassword)
+            Console.WriteLine(StoredPassword)
 
             FileOpen(1, "Password.txt", OpenMode.Input)
             Dim OGPasswrod As String
@@ -192,7 +192,7 @@ Module Program
             ChangePassWord = True
             Console.WriteLine("Now Set a new Password ")
             Call PasswordInput()
-            call Main()
+            Call Main()
 
         End If
     End Sub
