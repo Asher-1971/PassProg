@@ -173,7 +173,7 @@ Module Program
             Console.WriteLine("Welcome to password changing utility")
             Call PasswordCheck()
             Console.WriteLine("You have sucessfulyy verified your Password")
-            Console.WriteLine("Now Set a new Password")
+            Console.WriteLine("Now Set a new Password ")
             Call PasswordInput()
 
         End If
