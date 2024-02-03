@@ -100,8 +100,9 @@ Sub PasswordInput()
             Console.WriteLine("UNACCEPTABLE PASSWORD, your password is rejected for the following reasons:")
             ' Display the reasons why the password is not valid
             If CorrectLengthResult = False Then
-                Console.WriteLine("(^_^)Password must be between 10 and 20 characters long.")
-            End If
+                    Console.WriteLine("(^_^)Password must be between 10 and 20 characters long.")
+                    Console.WriteLine("     |-> Your current Password length is : {0} characters increase at minimum {1}", Password.Length, 10 - Password.Length)
+                End If
             If NoSpacesResult = False Then
                 Console.WriteLine("(^_^)Password must not contain any spaces.")
             End If
