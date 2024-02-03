@@ -26,9 +26,9 @@ Module Program
         ' Prompt the user to enter their choice
         Console.Write("Enter your choice (1-4):")
     End Sub
-End Module
 
-Sub Main()
+
+    Sub Main()
     ' Call the Choices subroutine to display the menu options
     Call Choices()
     ' Read the user's choice
